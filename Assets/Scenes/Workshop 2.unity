@@ -2721,6 +2721,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9edd2e939fac3b44791d0fdb94b4f50f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  acceleration: 0.5
+  deceleration: 0.5
+  maximumInjuredLayerWeight: 0.5
+  healthText: {fileID: 1236446638}
 --- !u!1 &1989555284
 GameObject:
   m_ObjectHideFlags: 0
