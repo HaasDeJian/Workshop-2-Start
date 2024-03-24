@@ -16,7 +16,7 @@
 - In de ``source`` die verschenen is, selecteer de ``Avatar`` van de ``Idle`` animatie
 - Doe dit voor alle andere animaties in de ``Animations`` map, maar selecteer de ``Loop Time`` en ``Loop pose`` checkbox in de ``Animation`` tab voor de animaties die dit nodig hebben. Deze tab is te vinden naast de ``Rig`` tab.
 
-## 2. Opknappen van een animatie
+## 2. Opkippen van een animatie
 - Selecteer de ``Idle animation`` en navigeer naar de ``Animation`` tab.
 - In de 'Animation' tab is er een ``Clip`` sectie.
 - Selecteer het ``+`` icon om een nieuwe animatie clip toe te voegen.
@@ -74,23 +74,31 @@ Tips:
 - Zet de nieuwe layer weight met de methode ``SetLayerWeight``.
 - Voor een smooth transitie tussen het gewicht van de ``Injured`` layer kan je ``Matf.SmoothDamp()`` gebruiken.
 
-## 6. Maak een nieuwe layer voor de looking animatie
-### 6.1 Aanmaken Avatar Mask
+## 6. Maak een nieuwe layer voor de shooting animatie
+- Maak een mask die alleen het bovenlichaam van het karakter gebruikt.
+- Pas de mask op de nieuwe layer toe.
+- Voeg de shooting animatie toe.
+- Ga over op de shooting animatie bij de druk op een knop via het script. 
+
+(TIP: Bij het enter en exit op de layer kan er logica worden toegepast om de shooting animatie van begin tot eind te laten lopen. Zie: ``StateMachineBehaviour``)
+
+## 7. Maak een nieuwe layer voor de looking animatie
+### 7.1 Aanmaken Avatar Mask
 - Voor de looking animatie willen we alleen dat een deel van het karater beweegt.
 - Maak een nieuwe ``Avatar Mask`` aan die alleen het hoofd van het karkter heeft. Dit kan in de map ``LayerMask -> Rechter muisklik -> Create -> Avatar Mask``
 - Geef de mask een goede naam en open de mask.
 - In de mask zijn er twee dropdowns, voor nu kijken we alleen naar de dropdown ``Humanoid``. Klap deze open.
 -  Zorg ervoor, door te klikken op de mask, dat alleen het hoofd groen is. 
 
-### 6.2 Aanmaken layer
+### 7.2 Aanmaken layer
 - Voeg aan de Animator controller een nieuwe layer toe. Dit kan met het ``+`` icon.
 - Geef de laag een toepasbare naam zoals ``Looking layer``
 - Selecteer de ``gear`` icon van de nieuwe laag en zet de ``Mask`` property op de reeds gecreeërde ``Avatar Mask``
 - Zet de layer weight op 1 met behulp van de ``slider`` of door het wijzigen van de ``waarde``. 
 - Sleep de ``Looking Behind`` animatie in de nieuwe layer.
 
-## 7. Shooting layer
-### 7.1 Animator
+## 8. Shooting layer
+### 8.1 Animator
 - Voeg aan de Animator controller een nieuwe layer toe. Dit kan met het ``+`` icon.
 - Geef de laag een toepasbare naam zoals ``Aiming layer``
 - Creeër een nieuwe ``Avatar Mask`` voor alleen het bovenlichaam van het karakter en voeg deze toe aan de nieuwe laag.
@@ -98,18 +106,18 @@ Tips:
 - Voeg aan de ``Aiming layer`` de animaties ``Idle`` en ``Shooting Arrow`` toe.
 - Maak een transitie van ``Idle`` naar ``Shooting Arrow`` en van ``Shooting Arrow`` naar ``Idle``. Dit kan met rechtermuislik op een van de animaties.
 
-#### 7.1.1 Transities shooting arrow -> idle
+#### 8.1.1 Transities shooting arraw -> idle
 - klik op de pijl die van de ``Shooting Arrow`` naar de ``Idle`` animatie gaat.
 - Selecteer de checkbox ``Has Exit time``
 - Voeg een nieuwe conditie toe met het ``+`` icon en selecteer de ``IsShooting`` paramter.
 - Zorg ervoor dat de conditie ``IsShooting -> false`` is.
 
-#### 7.1.1 Transities idle -> shooting arrow
+#### 8.1.1 Transities idle -> shooting arraw
 - herhaal dezelfde stappen maar dan voor de pijl die de andere richting op wijst.
 - Laat de ``Has Exit time`` checkbox ongechecked.
 - Zorg ervoor dat de conditie ``IsShooting -> true`` is.
 
-### 7.2 Script
+### 8.2 Script
 - Maak een nieuwe methode genaamd ``ExecuteAim()`` die door de ``Update`` van unity uitgevoerd word.
 - Zorg ervoor dat op een bepaalde ``KeyDown`` de layer weight van de ``Aiming layer`` op 1 gezet wordt.
 
@@ -117,27 +125,27 @@ Tip
 - Gebruik de ``SetBool`` methode van de ``Animator``
 - Zet de layer weight alleen op 1 als de ``KeyDown`` true is.
 
-## 8. Maak animaties voor de kubus
-### 8.1 bouncyCube
+## 9. Maak animaties voor de kubus
+### 9.1 bouncyCube
 - Selecteer het ``Cube`` gameobject in de ``Hierarchy``.
 - Open de ``Animation window`` met ``ctrl + 6`` of ``Window -> Animation -> Animation``.
 - Voeg een nieuwe animatie clip toe en geef dit de naam ``BouncyCube``.
 - Druk de ``record`` knop in de ``Animation window`` en beweeg de cube per key frame de gewenste richting op in de ``Y as``
 
-### 8.2 rotatingCube
+### 9.2 rotatingCube
 - Herhaal de stappen om nog een animatie te creeëren die de cube draait op de y as.
 
 Tip
 - Het toevoegen van een nieuwe keyfram kan met het ``>|`` icon of door het slepen van de witte bar naar de gewenste positie op de timeline.
 
-## 9. Gebruik additive layer om de animaties te combineren
+## 10. Gebruik additive layer om de animaties te combineren
 - Maak een nieuwe ``Animator controller`` aan en voeg deze toe aan de ``Cube``.
 - Maak een laag met de ``bouncyCube`` animatie.
 - Maak een tweede laag met de ``rotatingCube`` animatie.
 - Selecteer de ``gear`` icon van de tweede laag en zet de ``Blending`` property op ``Additive``.
 - Zet de layer weight op 1 met behulp van de ``slider`` of door het wijzigen van de ``waarde``. 
 
-## 10 Zorg dat het karakter naar de kubus kijkt (code).
+## 11 Zorg dat het karakter naar de kubus kijkt (code).
 - Check de ``IK Pass`` checkbox in de ``Base layer`` van de avatar animation controller via de ``gear`` icon.
 - Voeg de volgende functie toe in het ``AnimationControllerScript``, ``private void OnAnimatorIK(int layerIndex)``
 - Implementeer deze functie zodat wanneer een bepaalde knop ingedrukt wordt, de avatar kijkt naar de kubus.
