@@ -46,7 +46,7 @@
 - Om aan de blend tree aan te geven wanneer hij de volgende animatie moet afspelen gaan we de ``Velocity`` parameter aanpassen via een C# script.
 - Open de ``Scipts`` map in de assets folder van unity.
 - Open de ``AnimationControllerScipt``
-- Om de paramter in de ``Animator`` te veranderen hebben we een instantie nodig van de ``Animator`` component zelf.
+- Om de parameter in de ``Animator`` te veranderen hebben we een instantie nodig van de ``Animator`` component zelf.
 - Voeg een private variable toe aan het script voor een instantie van de ``Animator`` component.
 - In de start methode koppel je de instantie van de ``Animator`` component van je karakater met de private variable. Doe dit met ``GetComponent<>();`` 
 - Maak een nieuwe methode genaamd ``ExecuteBlendTree()`` die door de ``Update`` van unity uitgevoerd word.
@@ -57,7 +57,7 @@
  - Gebruik het ingebouwde input systeem van unity
  - Gebruik de bestaande variabelen in het script.
  - Zorg ervoor dat de velocity nooit hoger dan 1 is en lager dan 0
- - Zet aan het einde van je methode de ``Veloctiy`` paramter in de blend tree met ``SetFloat`` van de ``Animator`` component
+ - Zet aan het einde van je methode de ``Veloctiy`` parameter in de blend tree met ``SetFloat`` van de ``Animator`` component
 
 ## 5. Maak een nieuwe layer voor de injured animaties
 ### 5.1 Animator
@@ -70,7 +70,7 @@
 -- In het ``AnimationControllerScript`` is er een functie genaamd ``ChangeLayers`` breid deze uit om op basis van de karakter health de ``Weight`` van de ``Injured`` layer te wijzigen.
 
 Tips:
-- Maak gebruik van private paramters voor het opslaan van de ``LayerIndex``. Dit kan uitgelezen worden met de ``GetLayerIndex()`` functie van de ``Animator``.
+- Maak gebruik van private parameters voor het opslaan van de ``LayerIndex``. Dit kan uitgelezen worden met de ``GetLayerIndex()`` functie van de ``Animator``.
 - Zet de nieuwe layer weight met de methode ``SetLayerWeight``.
 - Voor een smooth transitie tussen het gewicht van de ``Injured`` layer kan je ``Matf.SmoothDamp()`` gebruiken.
 
@@ -101,7 +101,7 @@ Tips:
 #### 7.1.1 Transities shooting arrow -> idle
 - klik op de pijl die van de ``Shooting Arrow`` naar de ``Idle`` animatie gaat.
 - Selecteer de checkbox ``Has Exit time``
-- Voeg een nieuwe conditie toe met het ``+`` icon en selecteer de ``IsShooting`` paramter.
+- Voeg een nieuwe conditie toe met het ``+`` icon en selecteer de ``IsShooting`` parameter.
 - Zorg ervoor dat de conditie ``IsShooting -> false`` is.
 
 #### 7.1.1 Transities idle -> shooting arrow
