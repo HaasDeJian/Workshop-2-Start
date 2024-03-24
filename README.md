@@ -43,7 +43,7 @@
 - Voeg de animaties in de volgende volgorde toe, ``Idle -> Walking -> Running``.
 
 ### 4.2 Script
-- Om aan de blend tree aan te geven wanneer hij de volgende animatie moet afspelen gaan we de ``Veloctiy`` parameter aanpassen via een C# script.
+- Om aan de blend tree aan te geven wanneer hij de volgende animatie moet afspelen gaan we de ``Velocity`` parameter aanpassen via een C# script.
 - Open de ``Scipts`` map in de assets folder van unity.
 - Open de ``AnimationControllerScipt``
 - Om de paramter in de ``Animator`` te veranderen hebben we een instantie nodig van de ``Animator`` component zelf.
